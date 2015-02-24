@@ -1,0 +1,16 @@
+body {
+  padding: 0px;
+  font: 14px "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.row {
+	padding: 25px;
+}
+
+.checked {
+	color: #D6D6D6;
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html ng-app="Goals">
+  <head>
+    <title>goals</title>
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+    <link href="stylesheets/style.css" rel="stylesheet">
+    <link href="stylesheets/normalize.css" rel="stylesheet">
+
+    <script src="angular.js"></script>
+    <script src="index.js"></script>
+    <script src="factories/GoalsFactory.js"></script>
+
+  </head>
+
+    <body ng-controller="MainController">
+
+    <div class="row">
+         <div class="col-md-6">
+
+          <div class="form-group">
+            <label for="inputItem">To Do:</label>
+            <input type="text" name="content" class="form-control" id="inputItem" placeholder="What do I need to do?" ng-model="formData.text">
+          </div>
+            <button type="submit" class="btn btn-default" ng-click="createToDo()">Add</button>
+        </form>
+
+        <p>
+        <ul class="list-group">
+                <li class="list-group-item" ng-repeat="goal in goals" ng-class="{'checked': completed}">
+                <input type="checkbox" ng-model="completed"> {{ goal.text }}
+                <div class="pull-right"><a ng-click="deleteToDo(goal._id)">delete</a></div>
+        </ul>
+
+        </div>
+
+    </div>
+
+
+  </body>
+  </html>
