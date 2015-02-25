@@ -8,6 +8,7 @@
 
     <script src="angular.js"></script>
     <script src="index.js"></script>
+    <script src="controllers/main.js"></script>
     <script src="factories/GoalsFactory.js"></script>
 
   </head>
@@ -16,13 +17,18 @@
 
     <div class="row">
          <div class="col-md-6">
-
+         <div class="jumbotron">
+          <h1>hello.</h1>
+            <p>how will you achieve your goals today?</p>
+          <p>
           <div class="form-group">
-            <label for="inputItem">To Do:</label>
+            <label for="inputItem">to do:</label>
             <input type="text" name="content" class="form-control" id="inputItem" placeholder="What do I need to do?" ng-model="formData.text">
           </div>
             <button type="submit" class="btn btn-default" ng-click="createToDo()">Add</button>
         </form>
+        </p>
+        </div>
 
         <p>
         <ul class="list-group">
@@ -37,4 +43,14 @@
 
 
   </body>
+  
+  <script src="http://localhost:8080/socket.io/socket.io.js"></script>
+<!--     <script>
+      var socket = io.connect('http://localhost');
+        socket.on('changes', function (data) {
+        console.log(data);
+        socket.emit('my other event', { my: 'data' });
+      });
+    </script> -->
+
   </html>
