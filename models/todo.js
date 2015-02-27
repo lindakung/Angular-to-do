@@ -6,7 +6,8 @@ db.on('error', console.error.bind(console, 'mongodb connection error:'));
 
 //define our model
 var Todo = mongoose.model('Todo', {
-	text: String
+	text: String,
+	comments: [String]
 });
 
 module.exports = Todo;

@@ -5,11 +5,13 @@
     <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
     <link href="stylesheets/style.css" rel="stylesheet">
     <link href="stylesheets/normalize.css" rel="stylesheet">
+    <script src="/socket.io/socket.io.js"></script>
 
     <script src="angular.js"></script>
     <script src="index.js"></script>
     <script src="controllers/main.js"></script>
     <script src="factories/GoalsFactory.js"></script>
+    <script src="factories/socket.js"></script>
 
   </head>
 
@@ -36,21 +38,23 @@
                 <input type="checkbox" ng-model="completed"> {{ goal.text }}
                 <div class="pull-right"><a ng-click="deleteToDo(goal._id)">delete</a></div>
         </ul>
+        <textarea class="form-control" rows="2"></textarea>
 
         </div>
 
     </div>
 
+<!--     <script>
+      var socket = io.connect();
+
+      socket.on('message', function(data){
+          console.log(data.message);
+      });
+    </script> -->
+
 
   </body>
   
-  <script src="http://localhost:8080/socket.io/socket.io.js"></script>
-<!--     <script>
-      var socket = io.connect('http://localhost');
-        socket.on('changes', function (data) {
-        console.log(data);
-        socket.emit('my other event', { my: 'data' });
-      });
-    </script> -->
+
 
   </html>

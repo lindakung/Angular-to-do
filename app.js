@@ -15,7 +15,6 @@ app.use(bodyParser.urlencoded({'extended':'true'}));
 app.use(bodyParser.json());
 app.use(bodyParser.json({ type: 'application/vd.api+json'}));
 
-app.use('/', require('./routes/routes.js'));
 
 
 
@@ -23,13 +22,19 @@ var port = 8080;
 var server = app.listen(port, function() {
 	console.log('Server listening on port', port);
 });
+
 var io = socketio.listen(server);
+app.use('/', require('./routes/routes.js')(io));
+
+// io.on('connection', function(socket){
+//     socket.emit('message', {'message': 'hello world'});
+// });
+
 
 //serve root
 
-io.on('connection', function(socket) {
-	console.log('someone has connected');
-})
-
+// io.on('connection', function(socket) {
+// 	console.log('someone has connected');
+// 
 
 module.exports = app;
